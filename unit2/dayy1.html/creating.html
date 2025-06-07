@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      background-color: #0077cc;
+    }
+
+    nav {
+      margin-bottom: 20px;
+    }
+
+    nav a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: #0077cc;
+    }
+
+
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 2px solid #555; 
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f0f0f0; 
+    }
+
+    form {
+      border: 2px solid #777;
+      padding: 15px;
+      max-width: 400px;
+      margin-top: 20px;
+      background-color: #f9f9f9;
+    }
+
+    form div {
+      margin-bottom: 10px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Portfolio</h1>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <h2>Welcome to My Portfolio</h2>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>Hello! I'm a web developer passionate about building dynamic and responsive web applications. Here's a showcase of my work on a variety of projects.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Project</th>
+          <th>Description</th>
+          <th>Year</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Project Alpha</td>
+          <td>A web-based tool for tracking project progress and managing tasks.</td>
+          <td>2023</td>
+        </tr>
+        <tr>
+          <td>Portfolio Site</td>
+          <td>A personal website showcasing my work and skills as a web developer.</td>
+          <td>2024</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <form>
+      <div>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" />
+      </div>
+      <div>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" />
+      </div>
+      <div>
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4"></textarea>
+      </div>
+      <div>
+        <button type="submit">Send Message</button>
+      </div>
+    </form>
+  </section>
+
+</body>
+</html>
