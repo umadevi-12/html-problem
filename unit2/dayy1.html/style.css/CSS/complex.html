@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Naviagtion</title>
+    <style>
+        nav {
+            background:brown;
+            padding: 15px;
+            display :flex;
+            gap: 50px;
+        }
+        .section a{
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+        .section1 a{color: tomato;}
+        .section2 a{color: mediumaquamarine;}
+        .section3 a{color: gold;}
+
+        .section a:hover{
+            color: white;
+            background-color: brown;
+        }
+        .section >a{
+            font-weight: bold;
+        }
+        .section a[href ^="https"]{
+            color: rgba(12, 122, 233, 0.855) !important;
+        }
+        
+
+    </style>
+    
+</head>
+<body>
+    <nav>
+       <div class = "selection selection1">
+        <a href="/home">Home</a>
+        <a href="/abot">About</a>
+       </div>
+        <a href="https://secure.com/team">Team</a>
+      </div>
+    </div>
+
+    <div class="section section2">
+      <a href="/services">Services</a>
+      <a href="https://secure.com/pricing">Pricing</a>
+    </div>
+
+    <div class="section section3">
+      <a href="/contact">Contact</a>
+      <div>
+        <a href="https://secure.com/help">Help</a>
+      </div>
+    </div>
+    </nav>
+    
+    
+    
+</body>
+</html>
