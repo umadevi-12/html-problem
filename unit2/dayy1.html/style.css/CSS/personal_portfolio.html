@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .header {
+         background-color: orangered;
+         text-align: center;
+         padding: 0;
+         color: white;
+         word-spacing: 5px;
+        }
+        h1{
+          color: blue;
+        }
+        .nav-links {
+            text-align: center;
+            margin-top: 1px;
+            margin-bottom: 2px;
+
+        }
+        .nav-links a{
+            margin: 0;
+            text-decoration: none;
+            color:white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .nav-links a:hover{
+            text-decoration: underline;
+        }
+        .project-box {
+        border: 2px solid ;
+        border-radius: 0px;
+        padding: 15px;
+        margin: 20px auto;
+        max-width: 700px;
+        }
+
+        h1{
+            text-align:center;
+            background-color: orangered; 
+            padding: 0cm;
+            margin: 0;
+            font-size:20px
+        }
+        h2,h3{
+            font-weight: bold;
+        }
+        .Box {
+         width: 100px;
+         height: 100px;
+         background:white;
+         border: 1px solid black;
+         text-align: center;
+         line-height: 100px;
+        }
+        .form-group {
+         margin-bottom: 15px;
+         display: flex;
+         flex-direction: column;
+         max-width: 400px;
+        }
+
+        input, textarea {
+        padding: 8px;
+        font-size: 16px;
+        border: 1px solid #999;
+        border-radius: 4px;
+       }
+
+      .Picture{
+      display: flex;
+      gap: 15px;
+      padding: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+     }
+    .screenshot-box {
+     border: 1px solid;
+     padding: 1px;
+     margin:0;
+     border-radius: 2px; 
+     background-color:white;
+     max-width: 300px;
+    }
+    
+    .footer {
+    background-color: orangered;
+    border-radius: 1px;
+    padding: 0px;
+    margin-top: 2px;
+    text-align:center;
+    color: black;
+    }
+    h6{
+      text-align:center;
+    }
+   .main {
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 3px;
+    margin: 10px auto;
+    max-width: 900px;
+    background-color: white;
+    }
+
+
+ </style>
+</head>
+<body>
+  <div class = "main">
+    <div class = "header" >
+    <h1>Welcome to My Portfolio</h1>
+    <div class = "nav-links">
+    <a href="about">About</a>
+    <a href="projects">projects</a>
+    <a href="#contact">Contact</a>
+    </div>
+   
+</div>
+  <h2>About Me</h2>
+  <p>Hello! i'm a web developer with a passion for creating functional and beautiful web application</p>
+  <div class = "Apicture">A Picture of me</div>
+  <div class = "Box">Box</div>
+
+  <h2>Projects</h2>
+
+<div class="project-box">
+  <h3>Project One: Personal Blog</h3>
+  <div class="screenshot-box">
+    <p>Screenshot of my personal blog project</p>
+  </div>
+  <p>A personal blog where I write about web development, programming, and technology.</p>
+  <div>
+  <a href = "vew">View Project</a>
+  <h4> Technologies Used:</h4>
+  <ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+  </ul>
+  
+  </div>
+    </div>
+  <div class = "project-box">
+  <h3>Project Two : E -commerce Site</h3>
+  <div class  = "screenshot-box">
+     <p>Screenshot of my e-commerce project</p>
+  </div>
+ 
+  <p>An e-commerce website bulit to simulate a real - wprld online shopping experience.</p>
+  
+     <a href = "view">View Project</a> 
+     <h4>Technologies Used :</h4>
+     <ul>
+       <li>HTML</li>
+       <li>CSS</li>
+       <li>javaScript</li>
+    </ul>
+  </div>
+  
+  <h3>Contact Me</h3>
+    <form>
+    <div class = "from-group">
+
+  <label for = "Full Name">FuLL Name:</label><br>
+  <input type = "text" id = "full name" required/>
+  </div>
+ 
+  <div class = "from-group">
+  <label for = "Email">Email:</label><br>
+  <input type = "text" id = "Email" required/>
+  </div>
+  <div class = "from-group">
+  <label textarea = "Message">Message:</label><br>
+  <textarea type = "text" id = "Message" required></textarea>
+  </div>
+
+  <div>
+    <button type = "submit">Submit</button>
+  </div>
+  </form>
+  
+<div class="footer">
+  <h6>@ 2024 My Portfolio</h6>
+  <p>Follow me on:<a href ="" >Twitter | Github</a></p>
+</div> 
+</div>
+</body>
+</html>
