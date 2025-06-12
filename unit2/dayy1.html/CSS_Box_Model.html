@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model </title>
+    <style>
+        body {
+            padding: 20px;
+            background-color: white;
+        }
+     #boxs{
+        background-color: rgba(159, 64, 64, 0.615);
+        padding: 20px;
+     }
+     .box{
+        color: black;
+        margin: 10px;
+        box-sizing: 0;
+     }
+     .container{
+        width: 300px;
+        padding: 10px;
+        border: 7px solid black ;
+        margin: 1px;
+        box-sizing: border-box;
+        color: black;
+        background-color: aqua;
+     }
+     .container1 {
+           width: 300px;
+            padding: 20px;
+            border: 5px solid black;
+            margin: 1px;
+            box-sizing: content-box;
+            color:black;
+            background-color: yellow;
+      }
+     .container3{
+        width: 350px;
+        padding: 25px;
+        border: 6px solid black;
+        margin: 1px ;
+        box-sizing: border-box;
+        color: black;
+        background-color: rgb(15, 138, 142);
+     }
+    </style> 
+</head>
+<body>
+<div id = "boxs">
+   <div class = "container">
+    <P><strong>Box 1 -</strong>  box-sizing:<code>border-box</code> box CSS Box model by styling1</P>
+   </div>
+    <div class = "container1">
+        <P><strong>Box 2 -</strong> box-sizing:<code>border-box</code>CSS Box model by styling2</P>
+    </div>
+    <div class = "container3">
+        <P><strong>Box 3 -</strong>box-sizing:<code>border-box</code>CSS Box model by styling3</P>
+    </div>
+</div>
+    
+</body>
+</html>
