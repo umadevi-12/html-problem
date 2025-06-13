@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        p{
+            margin: bottom 20px; ;
+        }
+        #block-element {
+            display: block;
+            border: 2px solid palevioletred;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: darkgoldenrod;
+
+    }
+     #inline-element {
+      display: inline;
+      background-color: #ffecb3;
+      padding: 5px;
+      color: #333;
+    }
+
+    
+    #inline-block-element {
+      display: inline-block;
+      width: 120px;
+      height: 60px;
+      background-color: #bbdefb;
+      margin: 10px 5px;
+      padding: 10px;
+      vertical-align: top;
+      border: 2px dashed #2196F3;
+    }
+
+    
+    #hidden-element {
+      display: none;
+      padding: 10px;
+      background-color: #ffcdd2;
+      border: 2px dotted #f44336;
+    }
+
+
+    .toggle-btn {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background-color: #607d8b;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .toggle-btn:hover {
+      background-color: #455a64;
+    }
+    </style>
+</head>
+<body>
+    <h2>CSS Display Properties Demo</h2>
+    <p>This pages show how diffent CSS displa</p>
+
+    <div id = "block-element">
+        i am a block element.i take up the full width of the container.
+    </div>
+    <p>
+        Some inline text with an <span id = "inline element">inline element</span>inside  paragraph.
+    </p>
+    <div>
+      <div id = "inline-block-element">inline-block-box</div>
+      <div id = "inline-block-element">Another Box</div>
+    
+    </div>
+    <div id = "hidden - element">
+        I am a hidden element(display : none) . you can toggle me!
+    </div>
+    <button class = "toggle-btn" onclick= "toggleHidden()">Toggle Hidden Element</button>
+    <script>
+        function toggleHidden() {
+            const el = document.getElementById('hidden-element');
+            if(el.style.display === 'none'){
+                el.style.display = 'block';
+            }else{
+                el.style.display = 'none'
+            }
+            
+        }
+    </script>
+</body>
+</html>
