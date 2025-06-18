@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navbar</title>
+  <style>
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      padding: 10px 20px;
+      color: #fff;
+    }
+
+    .nav-items {
+      display: flex;
+      gap: 20px;
+    }
+    .hamburger {
+      display: none;
+      font-size: 24px;
+    }
+
+    @media (max-width: 1023px) and (min-width: 768px) {
+      .nav-items {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    @media (max-width: 767px) {
+      .nav-items {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #444;
+        margin-top: 10px;
+      }
+
+      .nav-items.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="brand">Brand</div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <div class="nav-items" id="nav-items">
+      <a href="#" class="nav-item">Home</a>
+      <a href="#" class="nav-item">About</a>
+      <a href="#" class="nav-item">Services</a>
+      <a href="#" class="nav-item">Contact</a>
+    </div>
+  </nav>
+</body>
+</html>
