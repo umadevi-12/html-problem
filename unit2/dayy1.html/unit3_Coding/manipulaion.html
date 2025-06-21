@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic List</title>
+    <style>
+        body{
+            padding: 20px;
+        }
+        .bold-blue{
+            color: blue;
+            font-weight: bold;
+        }
+        .italic-red{
+            color: red;
+            font-style: italic;
+        }
+
+    </style>
+</head>
+<body>
+    <ul class = "container">
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+    </ul>
+    <button id = 'add-button'>Add Item</button>
+
+    <script>
+        const list = document.querySelector('container');
+        const button = document.getElementById('add-button');
+
+        button.addEventListener('click',()=>{
+            const newItem = doucment.createElement('li');
+
+            const sequenceNumber = list.children.length+1;
+            newItem.textContent = 'New Item';
+
+            if(sequenceNumber % 2 === 1){
+                newItem.classList.add('bold-blue')
+            }
+            else{
+                newItem.classList.add('italic-red')
+            }
+            list.appendChild(newItem)
+        });
+    </script>
+</body>
+</html>
