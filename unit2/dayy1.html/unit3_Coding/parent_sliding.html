@@ -1,0 +1,53 @@
+
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            padding: 20px;   
+        }
+        #list{
+            margin: 10px;
+            
+        }
+        li{
+            padding: 10px;
+            border: 1px solid ;
+            cursor: pointer;
+            margin: bottom 5px; ;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+  <ul id="list">
+    <li id="item1">Item 1</li>
+    <li id="item2">Item 2</li>
+    <li id="item3">Item 3</li>
+  </ul>
+</div>
+<script>
+    const item2 = document.getElementById('item2');
+     item2.addEventListener('click',()=>{
+        const parent = item2.parentNode;
+        alert("Parent UL text content:" + parent.textContent.trim());
+
+        const prev = item2.previousElementSibling;
+        const next = item2.nextElementSibling;
+
+        if(prev){
+            console.log('previous slibilg :',prev.textContent.trim());
+        }
+        if(next){
+            console.log('next sibling :',nex.textContent.trim())
+        }
+    });
+</script>
+
+
+</body>
+</html>
