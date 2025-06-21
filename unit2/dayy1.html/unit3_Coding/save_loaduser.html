@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Notes App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    textarea {
+      width: 100%;
+      height: 200px;
+      padding: 10px;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 10px;
+      margin-right: 10px;
+      padding: 10px 15px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Notes App</h1>
+  <textarea id="noteArea" placeholder="Enter your notes here..."></textarea><br/>
+  <button onclick="saveNotes()">Save Notes</button>
+  <button onclick="loadNotes()">Load Notes</button>
+  <button onclick="clearNotes()">Clear Notes</button>
+</body>
+</html>
