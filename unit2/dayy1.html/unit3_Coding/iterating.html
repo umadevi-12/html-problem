@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Product Grid</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .product {
+      padding: 15px;
+      border-radius: 5px;
+      color: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .in-stock {
+      background-color: #4CAF50;
+    }
+
+    .out-of-stock {
+      background-color: #f44336;
+    }
+
+    .product h3 {
+      margin: 0 0 10px;
+    }
+
+    .product p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Product Grid</h2>
+  <div class="grid" id="productGrid"></div>
+
+  <script>
+    const products = [
+      { id: 1, name: "Product A", price: 50, inStock: true },
+      { id: 2, name: "Product B", price: 30, inStock: false },
+      { id: 3, name: "Product C", price: 70, inStock: true },
+      { id: 4, name: "Product D", price: 20, inStock: false }
+    ];
+
+    const grid = document.getElementById('productGrid');
+
+    products.forEach(product => {
+      const div = document.createElement('div');
+      div.classList.add('product');
+      div.classList.add(product.inStock ? 'in-stock' : 'out-of-stock');
+
+      div.innerHTML = `
+        <h3>${product.name}</h3>
+        <p>Price: $${product.price}</p>
+        <p>Status: ${product.inStock ? 'In Stock' : 'Out of Stock'}</p>
+      `;
+
+      grid.appendChild(div);
+    });
+  </script>
+
+</body>
+</html>
