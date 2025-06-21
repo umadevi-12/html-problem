@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Propagation Demo</title>
+  <style>
+    .outer, .middle, .inner {
+      padding: 20px;
+      margin: 10px;
+      border: 3px solid black;
+    }
+    .outer {
+      background-color: #007771d0;
+    }
+    .middle {
+      background-color: #fceabbc9;
+    }
+    .inner {
+      background-color: #d5f4e68f;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="outer" id="outer">
+    Outer Div
+    <button id="btn-outer">Outer Button</button>
+    <div class="middle" id="middle">
+      Middle Div
+      <button id="btn-middle">Middle Button</button>
+      <div class="inner" id="inner">
+        Inner Div
+        <button id="btn-inner">Inner Button</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const logEvent = (label) => (e) => {
+      alert(label + ' clicked (Phase: ' + (e.eventPhase === 1 ? 'Capturing' : 'Bubbling') + ')');
+    };
+
+    // Event listeners for bubbling
+    document.getElementById('outer').addEventListener('click', logEvent('Outer Div'), false);
+    document.getElementById('middle').addEventListener('click', logEvent('Middle Div'), false);
+    document.getElementById('inner').addEventListener('click', logEvent('Inner Div'), false);
+
+    // Event listeners for capturing
+    document.getElementById('outer').addEventListener('click', logEvent('Outer Div (Capture)'), true);
+    document.getElementById('middle').addEventListener('click', logEvent('Middle Div (Capture)'), true);
+    document.getElementById('inner').addEventListener('click', logEvent('Inner Div (Capture)'), true);
+
+    // Event listeners for buttons
+    document.getElementById('btn-outer').addEventListener('click', logEvent('Outer Button'));
+    document.getElementById('btn-middle').addEventListener('click', logEvent('Middle Button'));
+
+    document.getElementById('btn-inner').addEventListener('click', function(e) {
+      alert('Inner Button clicked — stopping propagation');
+      e.stopPropagation();
+    });
+  </script>
+
+</body>
+</html>
