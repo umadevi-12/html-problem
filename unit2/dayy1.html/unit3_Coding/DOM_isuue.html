@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debugging Task</title>
+</head>
+<body>
+    <p id = "message">original Message</p>
+    <button id = "textbutton"> change Text</button>
+    <br><br>
+    <div id = "box" style="width: 100px; height:100px ;background-color: rgba(114, 3, 3, 0.596);"></div>
+    <button id = "colorButton"> Change Background</button>
+    
+    <script>
+        const para = document.querySelector("#message");
+        const textbutton = document.getElementById('textbutton');
+
+        textbutton.addEventListener('click', ()=>{
+            para.textContent = 'New Message';
+        });
+
+        const box = document.getElementById('box');
+        const colorButton = document.getElementById('colorButton');
+
+        colorButton. addEventListener('click',()=>{
+            box.style.backgroundColor = 'blue'
+        });
+
+    </script>
+</body>
+</html>
