@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .theme-light {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    .theme-dark {
+      background-color: #121212;
+      color: #ffffff;
+    }
+
+    .theme-blue {
+      background-color: #007BFF;
+      color: #ffffff;
+    }
+
+    select {
+      padding: 8px 12px;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+    <h2>Theme Selector</h2>
+    <label for="Theme-select">Choose a theme :</label>
+    <select id = "Theme-select">
+        <option value = "light">Light</option>
+        <option value = "dark">Dark</option>
+        <option value=  "blue">blue</option>
+    </select>
+
+    <script>
+        const Themeselect = document.getElementById('theme-select')
+        const body = document.body;
+
+        function applyTheme(theme){
+            body.className = '';
+            body.classList.add(`theme-${theme}`)
+
+        }
+
+        const savedTheme = sessionStorage.getItem('selectedTheme') || "light";
+        applyTheme(savedTheme)
+        Themeselect.value = savedTheme;
+
+        Themeselect.addEventListener('change' ,()=>{
+            const selectedTheme = Themeselect.value;
+            applyTheme(selectedTheme);
+            sessionStorage.setItem('selectedTheme',selectedTheme);
+        });
+    </script>
+</body>
+</html>
