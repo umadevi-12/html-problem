@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            padding: 20px;
+            max-width: 500px;
+            margin: auto;
+        }
+        input[type = 'text']{
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+
+        }
+        button{
+            padding:8px 12px;
+            margin-left: 5px;
+        }
+        li{
+            padding: auto;
+            margin: 5px 0;
+            background: local;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .completed{
+            text-decoration: line-through;
+            color: blue;
+
+        }
+        .task-text{
+            flex-grow: 1;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Enhanced Todo List</h1>
+    <div id = "task-form">
+        <input type = 'text' id = 'new-task' placeholder="Add a new task"/>
+        <button onclick = "addTask()" >Add</button>
+    </div>
+    <input type = "text" id = "search" placeholder="search tasks..." oninput="renderTasks()"/>
+
+    <ul id = "task-list"></ul>
+    <script>
+        let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+        function saveTasks(){
+            localStorage.setItem('tasks',JSON.stringify(tasks))
+        }
+        function addTask(){
+            const input = document.getElementById('taskInput');
+            const text  = input.value.trim();
+            
+            if(!text) return;
+            const task = {
+                id:Date.now(),
+                text,
+                completed:false
+            };
+            tasks.push(task);
+            input.value = '';
+            saveTasks();
+            renderTasks();
+
+        }
+
+        function toggleComplete(id){
+            task = tasks.map(task =>
+                task.id === id ? {...task,completed: !task.completed} : task
+            );
+            saveTasks();
+            renderTasks();
+
+        }
+
+        function deleteTasks(id){
+            tasks = tasks.filter(task => task.id !== id);
+            saveTasks();
+            renderTasks();
+
+        }
+        function renderTasks(){
+            const list = document.getElementById('taskList');
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            list.innerHTML = '';
+
+            tasks
+            .filter(task => task.text.toLowerCase().includes(search))
+            .forEach(task => { 
+                const li  = document.createElement('li');
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.checked  = task.completed;
+                checkbox.onclick = () =>toggleComplete(task.id)
+
+                const span = document.createElement('span');
+                span.textContent = tasks.text;
+                span.className = 'task-text' + (task.completed ? 'completed' : "");
+
+                const delBtn = document.createElement('button');
+                delBtn.textContent = 'delete';
+                delBtn.onclick = () => deleteTask(Task.id);
+
+                li.appendChild(checkbox)
+                li.appendChild(span)
+                li.appendChild(delBtn)
+                li.appendChild(li)
+                
+            });
+        }
+    </script>
+</body>
+</html>
