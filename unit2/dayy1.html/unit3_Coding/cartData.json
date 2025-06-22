@@ -1,0 +1,9 @@
+{
+  "user1": [
+    { "itemName": "Laptop", "price": 1000, "quantity": 1 },
+    { "itemName": "Mouse", "price": 20, "quantity": 2 }
+  ],
+  "user2": [
+    { "itemName": "Keyboard", "price": 50, "quantity": 1 }
+  ]
+}

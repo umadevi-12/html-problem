@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-User Shopping Cart</title>
+    <style>
+    body { 
+        font-family: Arial; padding: 20px;
+     }
+    #login, #cart-section {
+         margin-bottom: 20px;
+     }
+    table, th, td { 
+        border: 1px solid black; border-collapse: collapse; padding: 8px;
+     }
+    input[type="number"] {
+         width: 60px;
+     }
+    .hidden { 
+        display: none; 
+    }
+  </style>
+</head>
+<body>
+    <div id = "login">
+        <h2>Login</h2>
+        <input type = "text" id = "username" placeholder="Enter Unique username"/>
+        <button onclick  = "login()">Login</button>
+        <p id = "login-error" style="color:red"></p>
+    </div>
+    <div id ="cart-section" class = "hidden">
+        <h2>Welcome , <span id = "user-display"></span></h2>
+
+        <h3>Add item to Cart</h3>
+        <input type = "text" id = "item-name" placeholder="item-name"/>
+        <input type = "number" id = "item-price" placeholder="Price" min = '0'/>
+        <input type = 'number' id = 'item-quality' placeholder="Quality" min = '1'/>
+        <button onclick ="addItem()">Add Item</button>
+        <button onclick="cartData()">Download My Cart as JSON</button>
+
+
+        <p id = "add-error" style="color: red;"></p>
+
+        <h3>Your Cart</h3>
+        <table id = 'cart-table'>
+            <thead>
+                <tr>
+                <th>Item</th><th>Price</th><th>Quality</th><th>Total</th><th>Actions</th>
+                </tr>
+            </thead>
+        </table>
+        <h3>Total Cost : $<span id = "total-cost">0</span></h3>
+    </div>
+    <script src ="app.js"></script>
+    
+
+    
+</body>
+</html>
