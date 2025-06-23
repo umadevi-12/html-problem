@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .meme {
+      border: 2px solid #ccc;
+      padding: 10px;
+      border-radius: 8px;
+      position: relative;
+      transition: border 0.3s;
+    }
+    .meme.favorite {
+      border: 3px solid gold;
+    }
+    .meme img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+    </style>
+</head>
+<body>
+    <h1>Meme Catalog</h1>
+    <div class = "controls">
+        <button onclick="fetchMemes()">Fetch Memes</button>
+        <input type = "text" id = "search" placeholder="Search memes..."/>
+        <select id = 'sort'>
+            <option value = "">Sort By</option>
+            <option value = "name">Name</option>
+            <option value = "width">Width</option>
+            <option value = "height">Height</option>
+        </select>
+        <label><input type = "checkbox" id = "showFavoritesOnly"/>Show showFavorites Only</label>
+
+    </div>
+
+    <div class = "grid" id = "memeGrid"></div>
+    <script>
+        let memes = [];
+        const  localKeys = {
+            favorites : 'favoriteMemes',
+            search :'searchValue',
+            sort:'sortOrder',
+            showFavoritesOnly:'showFavoritesOnly'
+        };
+        const getStored = key => JSON.parse(localStorage.getItem(key)) || '';
+        const saveStored =(key,val) =>localStorage.setItem(key,JSON.stringify(val))
+
+        document.addEventListener("DOMContentLoaded",()=>{
+            document.getElementById('search').value = getStored(localKeys.search);
+            document.getElementById('sort').value = getStored(localKeys.sort);
+            document.getElementById('showFavoritesOnly').checked = getStored(localKeys.showFavoritesOnly) || false;
+
+            document.getElementById('search').addEventListener('input',updateDisplay);
+            document.getElementById('sort').addEventListener('change',updateDisplay);
+            document.getElementById('showFavoritesOnly').addEventListener('change',updateDisplay);
+
+            updateDisplay();
+        });
+
+        function fetchMemes(){
+            fetch('https://api.imgflip.com/get_memes')
+            .then(res => res.json())
+            .then(data => {
+                memes = data.data.memes;
+                updateDisplay();
+            });
+        }
+
+        function updateDisplay(){
+            const searchVal = document.getElementById('search').value.toLowerCase();
+            const sortVal = document.getElementById('sort').value;
+            const showFavoritesOnly = document.getElementById('showFavoritesOnly').checked;
+            const favorites = getStored(localKeys.favorites) || [];
+
+            saveStored(localKeys.search,searchVal);
+            saveStored(localKeys.sort,sortVal);
+            saveStored(localKeys.showFavoritesOnly,showFavoritesOnly);
+
+            let filtered = mems.filter(meme => meme.name.toLowerCase().includes(searchVal));
+            if(showFavoritesOnly){
+                filtered = filtered.filter(m=>favorite.includes(m.id));
+            }
+
+            if(sortVal === 'name') filtered.sort((a,b) =>a.name.localeCompare(b.name))
+            else if(sortVal === 'width')filtered.sort((a,b)=>b.width - a.width);
+            else if(sortVal === 'height')filtered.sort((a,b) => b.height -a.height);
+
+           
+
+        }
+    </script>
+</body>
+</html>
