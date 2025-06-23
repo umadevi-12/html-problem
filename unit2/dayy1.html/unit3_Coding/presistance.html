@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presistent Lists</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2em;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .empty {
+      color: gray;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+    <h1>My Presistent List</h1>
+
+    <input type = "text" id = 'itemInput'placeholder = "Enter a new Item"/>
+    <button id  = "addButton">Add</button>
+    <button id = 'ClearButton'>Clear</button>
+
+    <ul id = "itemList"></ul>
+    <p id = "emptyMessage" class = "empty"> No items added yet</p>
+    
+    <script>
+        const itemInput = document.getElementById('itemInput');
+        const addButton = document.getElementById('addButton');
+        const ClearButton = document.getElementById('clearButton');
+        const itemList = document.getElementById('itemList');
+        const emptyMessage = document.getElementById('emptyMessage');
+
+        let item = [];
+        function saveItems(){
+            localStorage.setItem('items',JSON.stringify(items));
+        }
+        function renderTasks(){
+            itemList.innerHTML = '';
+            if(items.length === 0){
+                emptyMessage.style.display = 'block';
+
+            }
+            else{
+                emptyMessage.style.display = 'none';
+                items.forEach((item,index) => {
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    itemList.appendChild('li');
+                    
+                });
+            }
+        }
+        itemInput.addEventListener('click',()=>{
+            if(confirm('Are you sure you want to clear all items?')){
+                items = [];
+                saveItems();
+                renderTasks();
+            }
+
+        });
+        window.onload = () =>{
+            loadItems();
+            renderTasks();
+        }
+        
+    </script>
+</body>
+</html>
