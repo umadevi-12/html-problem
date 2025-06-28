@@ -1,0 +1,10 @@
+body{
+    margin: 30px;
+}
+input,textarea{
+    width: 300px;
+    margin-bottom: 10px;
+}
+button{
+    padding: 5px 10px;
+}
