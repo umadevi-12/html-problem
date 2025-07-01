@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Todos with Pagination</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .todo {
+      border: 1px solid #ddd;
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 4px;
+      background-color: #f9f9f9;
+    }
+    .completed {
+      color: green;
+    }
+    .not-completed {
+      color: red;
+    }
+    .pagination {
+      margin-top: 20px;
+    }
+    .pagination button {
+      margin: 0 4px;
+      padding: 6px 10px;
+    }
+    .active {
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Todos with Pagination</h1>
+
+  <div id="todo-container"></div>
+
+  <div class="pagination" id="pagination-container"></div>
+
+  <script src="sccript.js"></script>
+</body>
+</html>
