@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Pagination</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .user-card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    .pagination {
+      margin-top: 20px;
+    }
+    .pagination button {
+      margin: 0 5px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+    .active {
+      font-weight: bold;
+      background-color: #007bff;
+      color: white;
+    }
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>User Pagination</h1>
+  <div id="user-container"></div>
+  <div class="pagination" id="pagination-buttons"></div>
+  <div id="error-message" class="error"></div>
+
+  <script src="scripttt.js"></script>
+</body>
+</html>
