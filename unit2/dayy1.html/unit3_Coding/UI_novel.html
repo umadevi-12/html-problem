@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Novel List</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input, select { margin: 10px; padding: 5px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+    th { background-color: #f2f2f2; }
+  </style>
+</head>
+<body>
+  <h1>📚 Novel List</h1>
+
+  <div>
+    🔍 Search:
+    <input type="text" id="searchInput" placeholder="Search by title or author">
+    📆 Year:
+    <input type="number" id="yearFilter" placeholder="e.g. 2020">
+    💰 Sort by Price:
+    <select id="sortPrice">
+      <option value="">-- Select --</option>
+      <option value="asc">Low to High</option>
+      <option value="desc">High to Low</option>
+    </select>
+    <button onclick="loadNovels()">Apply Filters</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th><th>Author</th><th>Price</th><th>Release Year</th><th>Genre</th>
+      </tr>
+    </thead>
+    <tbody id="novelList"></tbody>
+  </table>
+
+  <!-- Firebase SDK and JS -->
+  <script type="module" src="app1.js"></script>
+</body>
+</html>
