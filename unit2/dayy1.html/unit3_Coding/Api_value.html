@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Pagination</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .user-card {
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    .pagination {
+      margin-top: 20px;
+    }
+    .pagination button {
+      margin: 0 5px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+    .active {
+      background-color: #007BFF;
+      color: white;
+      font-weight: bold;
+    }
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>User List with Pagination</h1>
+  <div id="user-container"></div>
+  <div class="pagination" id="pagination"></div>
+  <p class="error" id="error-message"></p>
+
+  <script src="scriipt.js"></script>
+</body>
+</html>
