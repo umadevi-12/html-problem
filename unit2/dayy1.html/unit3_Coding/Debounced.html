@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debounced Moive Search</title>
+</head>
+<body>
+    <h2>Moive Search</h2>
+    <input type = "text" id = "searchbox" placeholder="Type a moive name..."/>
+    <button onclick="searchandsave()">Search & Save </Search></button>
+    <div id = "result"></div>
+
+    <script>
+        const API_KEY = 'your_omdb_api_key'
+        const FIREBASE_URL = 
+
+        searchbox.addEventListener('input',()=>{
+            clearTimeout(debounceTimeout);
+
+            debounceTimeout = setTimeout(()=>{
+                const query = searchbox.value.trim();
+
+                if(query == ''){
+                    resultDiv.innerHTML = '';
+                    return
+                }
+                fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${encodeURIComponent(query)}`)
+                .then(reponse => response.json())
+                .then(response => response.json())
+          .then(data => {
+            if (data.Response === "True") {
+              const movies = data.Search.map(movie => `<div class="movie-title">${movie.Title}</div>`).join('');
+              resultsDiv.innerHTML = movies;
+            } else {
+              resultsDiv.innerHTML = `<div>No results found.</div>`;
+            }
+          })
+          .catch(error => {
+            console.error('Error fetching data:', error);
+            resultsDiv.innerHTML = `<div>Error loading results.</div>`;
+          });
+      }, 500); 
+    });
+        
+    </script>
+    
+</body>
+</html>
