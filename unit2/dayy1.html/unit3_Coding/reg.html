@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="registerForm">
+  <input type="email" id="email" placeholder="Email" required>
+  <input type="password" id="password" placeholder="Password" required>
+  <select id="role">
+    <option value="admin">Admin</option>
+    <option value="user">User</option>
+  </select>
+  <button type="submit">Register</button>
+  </div>
+
+<div id="loginForm">
+  <input type="email" id="email" placeholder="Email" required>
+  <input type="password" id="password" placeholder="Password" required>
+  <button type="submit">Login</button>
+</div>
+<p id="error"></p>
+
+<p id="message"></p>
+<script type="module">
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  databaseURL: "https://YOUR_PROJECT.firebaseio.com",
+  projectId: "YOUR_PROJECT_ID"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth();
+const db = getDatabase();
+
+document.getElementById("registerForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const email = email.value;
+  const password = password.value;
+  const role = role.value;
+
+  try {
+    const userCred = await createUserWithEmailAndPassword(auth, email, password);
+    await set(ref(db, 'users/' + userCred.user.uid), {
+      email: email,
+      role: role
+    });
+    document.getElementById("message").textContent = "Registration successful!";
+    window.location.href = "login.html";
+  } catch (error) {
+    document.getElementById("message").textContent = error.message;
+  }
+});
+</script>
+</body>
+</html>
+
