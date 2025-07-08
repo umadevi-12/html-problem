@@ -1,0 +1,40 @@
+body{
+    background:lightgrey;
+    padding: 20px;
+}
+.container{
+    max-width: 800px;
+    margin: auto;
+}
+form{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+form,input,form button{
+    padding: 10px;
+    font-size: 16px;
+}
+.controls{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+table{
+    width:100%;
+    border-collapse: collapse;
+    background: lightseagreen
+}
+th,td{
+    padding:12px;
+    border:1px soild lightskyblue;
+    text-align: center;
+}
+tr.higlight{
+    background-color: bisque;
+}
+#summary{
+    margin-bottom: 10px;
+    font-weight: bold;
+}

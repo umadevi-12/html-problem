@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Record Manager </title>
+    <link rel = "stylesheet" href = "stylle.css"/>
+</head>
+<body>
+    <div class = 'container'>
+        <h1>Student Record Manager</h1>
+
+        <from id = "student-form">
+            <input type = 'text'  id  = "name" placeholder="Name" required/>
+            <input type = 'text' id = 'batch' placeholder="Batch" required/>
+            <input type = 'number' id = 'age' placeholder="Age" required min = '0'/>
+            <input type = 'number' id = score placeholder="Score(0-100)" required min = '0' max = '100'/>
+            <button type = 'submit'>Submit</button>
+        </from>
+        <div class = 'controls'>
+            <input type = 'text' id = 'search' placeholder="Search by name..."/>
+            <button id = 'sort_age'>Sort By Age</button>
+            <button id = 'sort_score'>Sort by Score</button>
+        </div>
+        <div id = 'summary'></div>
+        <table id = 'student_table'>
+            <thred>
+                <tr>
+                    <th>Name</th>
+                    <th>Batch</th>
+                    <th>Age</th>
+                    <th>Score</th>
+                    <th>Actions</th>
+                </tr>
+            </thred>
+            <tbody></tbody>
+        </table>
+    </div>
+    <script src = 'scriptis.js'></script>
+    
+</body>
+</html>
